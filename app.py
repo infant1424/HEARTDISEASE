@@ -4,7 +4,6 @@ import pickle
 import numpy as np
 
 # Change the working directory to where app.py and the model are located
-os.chdir('c:/Users/richa/Desktop/project/')
 
 app = Flask(__name__)
 
