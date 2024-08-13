@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="age">Age:</label><br>
+        <input type="number" name="age" required><br><br>
+
+        <label for="sex">Sex (0 = Female, 1 = Male):</label><br>
+        <input type="number" name="sex" required><br><br>
+
+        <label for="cp">Chest Pain Type (0-3):</label><br>
+        <input type="number" name="cp" required><br><br>
+
+        <label for="trestbps">Resting Blood Pressure:</label><br>
+        <input type="number" name="trestbps" required><br><br>
+
+        <label for="chol">Cholesterol (mg/dl):</label><br>
+        <input type="number" name="chol" required><br><br>
+
+        <label for="fbs">Fasting Blood Sugar (1 = True, 0 = False):</label><br>
+        <input type="number" name="fbs" required><br><br>
+
+        <label for="restecg">Resting ECG Results (0-2):</label><br>
+        <input type="number" name="restecg" required><br><br>
+
+        <label for="thalach">Maximum Heart Rate Achieved:</label><br>
+        <input type="number" name="thalach" required><br><br>
+
+        <label for="exang">Exercise Induced Angina (1 = Yes, 0 = No):</label><br>
+        <input type="number" name="exang" required><br><br>
+
+        <label for="oldpeak">ST Depression Induced by Exercise:</label><br>
+        <input type="number" step="any" name="oldpeak" required><br><br>
+
+        <label for="slope">Slope of the Peak Exercise ST Segment (0-2):</label><br>
+        <input type="number" name="slope" required><br><br>
+
+        <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-3):</label><br>
+        <input type="number" name="ca" required><br><br>
+
+        <label for="thal">Thalassemia (0 = Normal, 1 = Fixed Defect, 2 = Reversible Defect):</label><br>
+        <input type="number" name="thal" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
