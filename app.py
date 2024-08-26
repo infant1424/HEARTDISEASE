@@ -30,5 +30,5 @@ def predict():
     output = prediction[0]
     return render_template('index.html', prediction_text='Predicted Class: {}'.format(output))
 
-if __name__ == "__main__":
-    app.run(debug=True,port=8080)
+if _name_ == "_main_":
+    app.run(host='0.0.0.0', port=8080, debug=True)
