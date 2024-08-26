@@ -4,48 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <h1>Heart Disease Prediction</h1>
     <form action="{{ url_for('predict') }}" method="post">
-        <label for="age">Age:</label><br>
-        <input type="number" name="age" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" name="age" required>
 
-        <label for="sex">Sex (0 = Female, 1 = Male):</label><br>
-        <input type="number" name="sex" required><br><br>
+        <label for="sex">Sex (0 = Female, 1 = Male):</label>
+        <input type="number" name="sex" required>
 
-        <label for="cp">Chest Pain Type (0-3):</label><br>
-        <input type="number" name="cp" required><br><br>
+        <label for="cp">Chest Pain Type (0-3):</label>
+        <input type="number" name="cp" required>
 
-        <label for="trestbps">Resting Blood Pressure:</label><br>
-        <input type="number" name="trestbps" required><br><br>
+        <label for="trestbps">Resting Blood Pressure:</label>
+        <input type="number" name="trestbps" required>
 
-        <label for="chol">Cholesterol (mg/dl):</label><br>
-        <input type="number" name="chol" required><br><br>
+        <label for="chol">Cholesterol (mg/dl):</label>
+        <input type="number" name="chol" required>
 
-        <label for="fbs">Fasting Blood Sugar (1 = True, 0 = False):</label><br>
-        <input type="number" name="fbs" required><br><br>
+        <label for="fbs">Fasting Blood Sugar (1 = True, 0 = False):</label>
+        <input type="number" name="fbs" required>
 
-        <label for="restecg">Resting ECG Results (0-2):</label><br>
-        <input type="number" name="restecg" required><br><br>
+        <label for="restecg">Resting ECG Results (0-2):</label>
+        <input type="number" name="restecg" required>
 
-        <label for="thalach">Maximum Heart Rate Achieved:</label><br>
-        <input type="number" name="thalach" required><br><br>
+        <label for="thalach">Maximum Heart Rate Achieved:</label>
+        <input type="number" name="thalach" required>
 
-        <label for="exang">Exercise Induced Angina (1 = Yes, 0 = No):</label><br>
-        <input type="number" name="exang" required><br><br>
+        <label for="exang">Exercise Induced Angina (1 = Yes, 0 = No):</label>
+        <input type="number" name="exang" required>
 
-        <label for="oldpeak">ST Depression Induced by Exercise:</label><br>
-        <input type="number" step="any" name="oldpeak" required><br><br>
+        <label for="oldpeak">ST Depression Induced by Exercise:</label>
+        <input type="number" step="any" name="oldpeak" required>
 
-        <label for="slope">Slope of the Peak Exercise ST Segment (0-2):</label><br>
-        <input type="number" name="slope" required><br><br>
+        <label for="slope">Slope of the Peak Exercise ST Segment (0-2):</label>
+        <input type="number" name="slope" required>
 
-        <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-3):</label><br>
-        <input type="number" name="ca" required><br><br>
+        <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-3):</label>
+        <input type="number" name="ca" required>
 
-        <label for="thal">Thalassemia (0 = Normal, 1 = Fixed Defect, 2 = Reversible Defect):</label><br>
-        <input type="number" name="thal" required><br><br>
+        <label for="thal">Thalassemia (0 = Normal, 1 = Fixed Defect, 2 = Reversible Defect):</label>
+        <input type="number" name="thal" required>
 
         <input type="submit" value="Predict">
     </form>
