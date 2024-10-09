@@ -3,9 +3,8 @@ from flask import Flask, request, render_template
 import pickle
 import numpy as np
 
-# Change the working directory to where app.py and the model are located
-# You might need to set this if your script isn't in the same directory as the model
-# os.chdir('/path/to/your/directory') 
+# Set the directory where your app.py and model are located (optional)
+# os.chdir('/path/to/your/directory')
 
 app = Flask(__name__)
 
@@ -22,15 +21,17 @@ def home():
 def predict():
     # Collect features from the form
     features = [float(x) for x in request.form.values()]
-    
+
     # Ensure the features are in the correct format for prediction
     final_features = [np.array(features)]
-    
+
     # Perform the prediction
     prediction = model.predict(final_features)
 
-    output = prediction[0]
-    return render_template('index.html', prediction_text='Predicted Class: {}'.format(output))
+    # 1 means heart disease is present, 0 means no heart disease
+    output = "Heart disease is present" if prediction[0] == 1 else "No heart disease"
+
+    return render_template('index.html', prediction_text='Prediction: {}'.format(output))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
